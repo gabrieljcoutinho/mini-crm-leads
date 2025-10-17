@@ -7,13 +7,13 @@ def add_lead():
     email = input("Email: ")
 
     repo.create(model_lead(name, company, email))
-    print("\n✅ Lead adicionado com sucesso!\n")
+    print("\n Lead adicionado com sucesso!\n")
 
 def list_leads():
     leads = repo._load()  # carrega os leads do arquivo JSON
 
     if not leads:
-        print("\n⚠️ Nenhum lead encontrado.\n")
+        print("\n Nenhum lead encontrado.\n")
         return
 
     print("\n=== LISTA DE LEADS ===")
@@ -33,7 +33,7 @@ def main():
         elif op == "2":
             list_leads()
         elif op == "0":
-            print("👋 Até mais!")
+            print(" Até mais!")
             break
         else:
             print("❌ Opção inválida, tente novamente.")
