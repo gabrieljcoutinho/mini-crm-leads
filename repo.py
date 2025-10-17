@@ -22,4 +22,3 @@ def create(lead_dict):
     read_leads = _load()
     read_leads.append(lead_dict)
     _save(read_leads)
-
