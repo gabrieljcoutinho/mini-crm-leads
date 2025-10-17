@@ -7,10 +7,22 @@ def add_lead():
     email = input("Email: ")
 
     repo.create(model_lead(name, company, email))
-    print("Lead adicionar")
+    print("\n✅ Lead adicionado com sucesso!\n")
 
 def list_leads():
-    print("Listar leads")
+    leads = repo._load()  # carrega os leads do arquivo JSON
+
+    if not leads:
+        print("\n⚠️ Nenhum lead encontrado.\n")
+        return
+
+    print("\n=== LISTA DE LEADS ===")
+    for i, lead in enumerate(leads, start=1):
+        print(f"{i}. Nome: {lead['name']}")
+        print(f"   Empresa: {lead['company']}")
+        print(f"   Email: {lead['email']}")
+        print(f"   Estágio: {lead['stage']}")
+        print(f"   Criado em: {lead['created']}\n")
 
 def main():
     while True:
@@ -21,18 +33,16 @@ def main():
         elif op == "2":
             list_leads()
         elif op == "0":
-            print("Até mais")
+            print("👋 Até mais!")
             break
         else:
-            print("opaão inválida")
+            print("❌ Opção inválida, tente novamente.")
 
 def print_menu():
-        print("\nMini CRM deLeads - (Adicionar/Listar)")
-        print("[1] Adicionar lead")
-        print("[2] Listar lead")
-        print("[0] Sair")
+    print("\n Mini CRM de Leads")
+    print("[1] Adicionar lead")
+    print("[2] Listar leads")
+    print("[0] Sair")
 
 if __name__ == "__main__":
     main()
-
-
