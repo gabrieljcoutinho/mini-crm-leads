@@ -112,7 +112,7 @@ class CRMApp:
             elif op == "3":
                 self.search_leads()
             elif op == "0":
-                print("👋 Até mais!")
+                print(" Até mais!")
                 break
             else:
                 print("❌ Opção inválida, tente novamente.")
